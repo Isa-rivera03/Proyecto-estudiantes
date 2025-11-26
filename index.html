@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sistema de Información de Estudiantes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="contenedor">
+  <h2>Sistema de Información de Estudiantes</h2>
+
+  <nav class="tabs">
+    <button onclick="mostrarSeccion('crear')" id="btn-crear" class="active">Crear estudiante</button>
+    <button onclick="mostrarSeccion('listar')" id="btn-listar">Listar estudiantes</button>
+    <button onclick="mostrarSeccion('eliminar')" id="btn-eliminar">Eliminar estudiante</button>
+    <button onclick="mostrarSeccion('actualizar')" id="btn-actualizar">Actualizar estudiante</button>
+  </nav>
+
+ 
+  <section id="crear" class="seccion">
+    <h3>Crear nuevo estudiante</h3>
+    <form id="formCrear">
+      <label>Nombres</label>
+      <input type="text" id="nombre" required>
+
+      <label>Apellidos</label>
+      <input type="text" id="apellido" required>
+
+      <label>Edad</label>
+      <input type="number" id="edad" required>
+
+      <label>Carrera</label>
+      <select id="carrera" required>
+        <option value="">-- Seleccione opción --</option>
+      </select>
+
+      <label>Estrato</label>
+      <input type="number" id="estrato" required>
+
+      <button type="submit" class="btn-guardar">Guardar</button>
+    </form>
+  </section>
+
+  <section id="listar" class="seccion" style="display:none;">
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Edad</th>
+          <th>Carrera</th>
+          <th>Estrato</th>
+        </tr>
+      </thead>
+      <tbody id="tablaEstudiantes"></tbody>
+    </table>
+  </section>
+
+ 
+  <section id="eliminar" class="seccion" style="display:none;">
+    <label>Id Estudiante</label>
+    <input type="number" id="idEliminar">
+    <button onclick="eliminarEstudiante()" class="btn-eliminar">Eliminar</button>
+  </section>
+  <section id="actualizar" class="seccion" style="display:none;">
+  <h3>Actualizar información de un estudiante</h3>
+
+  <label>ID del estudiante</label>
+  <input type="number" id="idBuscar">
+
+  <button onclick="buscarEstudiante()" class="btn-guardar">Buscar</button>
+
+  <div id="formActualizar" style="display:none; margin-top:15px;">
+    <h4>Editar datos</h4>
+
+    <label>Nombres</label>
+    <input type="text" id="u_nombre">
+
+    <label>Apellidos</label>
+    <input type="text" id="u_apellido">
+
+    <label>Edad</label>
+    <input type="number" id="u_edad">
+
+    <label>Carrera</label>
+    <select id="u_carrera"></select> 
+    
+    <label>Estrato</label>
+    <input type="number" id="u_estrato">
+
+    <button onclick="actualizarEstudiante()" class="btn-guardar" style="margin-top:10px;">
+      Actualizar
+    </button>
+  </div>
+</section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
